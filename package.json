@@ -4,7 +4,8 @@
   "description": "Minha primeira aplicacao  node backend",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon ./server.js"
   },
   "repository": {
     "type": "git",
@@ -15,5 +16,9 @@
   "bugs": {
     "url": "https://github.com/jhey2019/projeto-javascript-api/issues"
   },
-  "homepage": "https://github.com/jhey2019/projeto-javascript-api#readme"
+  "homepage": "https://github.com/jhey2019/projeto-javascript-api#readme",
+  "dependencies": {
+    "express": "^4.17.2",
+    "nodemon": "^2.0.15"
+  }
 }
