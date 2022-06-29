@@ -38,6 +38,35 @@ class ApiService {
         console.log(media);
         return media;
     }
+
+    aprovValor(id1, id2, id3, id4, id5){
+        const id1Number = Number(id1);
+        const id2Number = Number(id2);
+        const id3Number = Number(id3);
+        const id4Number = Number(id4);
+        const id5Number = Number(id5);
+        const soma = (id1Number + id2Number + id3Number +id4Number + id5Number);
+        console.log(soma);
+        const media = (soma / 5); 
+        console.log(media);
+        if (media > 5) {
+            return "Parabéns, você foi APROVADO :)";
+       }
+       else {
+           return "Infelizmente foi REPROVADO :(";
+       }
+    }
+
+    verValor(id1, id2){
+        const id1Number = Number(id1);
+        const id2Number = Number(id2);
+        if (id1Number > id2Number) {
+            return id1Number;
+       }
+       else {
+           return id2Number;
+       }
+    }
 }
 
 module.exports = ApiService

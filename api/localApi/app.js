@@ -45,6 +45,24 @@ app.get("/media/:id1/:id2/:id3", async function(request, response){
     const result = apiController.mediaValor(id1, id2, id3);
     return response.json(result);
 });
+app.get("/aprov/:id1/:id2/:id3/:id4/:id5", async function(request, response){
+    const id1 = request.params.id1;
+    const id2 = request.params.id2;
+    const id3 = request.params.id3;
+    const id4 = request.params.id4;
+    const id5 = request.params.id5;
+    const apiController = new ApiController();
+    const result = apiController.aprovValor(id1, id2, id3, id4, id5);
+    return response.json(result);
+});
+
+app.get("/ver/:id1/:id2", async function(request, response) {
+    const id1 = request.params.id1;
+    const id2 = request.params.id2;
+    const apiController = new ApiController();
+    const result = apiController.verValor(id1, id2);
+    return response.json(result);
+});
 
 module.exports = app;
 

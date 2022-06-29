@@ -24,6 +24,16 @@ class ApiController{
         const apiService = new ApiService();
         return apiService.mediaValor(id1, id2, id3);
     }
+
+    aprovValor(id1, id2, id3, id4, id5){
+        const apiService = new ApiService();
+        return apiService.aprovValor(id1, id2, id3, id4, id5);
+    }
+
+    verValor(id1, id2){
+        const apiService = new ApiService();
+        return apiService.verValor(id1, id2);
+    }
 }
 module.exports = ApiController
 
