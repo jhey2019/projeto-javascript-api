@@ -34,6 +34,11 @@ class ApiController{
         const apiService = new ApiService();
         return apiService.verValor(id1, id2);
     }
+
+    calcular(num1, num2,operacao){
+        const apiService = new ApiService();
+        return apiService.calcular(num1, num2,operacao);
+    }
 }
 module.exports = ApiController
 

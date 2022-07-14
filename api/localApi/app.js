@@ -63,12 +63,16 @@ app.get("/ver/:id1/:id2", async function(request, response) {
     return response.json(result);
 });
 
-app.get("calc", async function(request, response) {
+app.get("/calc", async function(request, response) {
     /* criar um calculadora que receba dois numeros e a operacao pela QUERY,
      verificar a operacao (soma, subtracao, divisao, multiplica ) realiza o calculo e retorna para o usuario*/
     const num1 = request.query.num1;
-    const num1 = request.query.num2;
+    const num2 = request.query.num2;
     const operacao = request.query.operacao;
+    const apiController = new ApiController();
+    const result = apiController.calcular(num1, num2,operacao );
+    return response.json(result);
+
 });
 
 module.exports = app;

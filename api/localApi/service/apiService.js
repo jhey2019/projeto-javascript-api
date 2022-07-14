@@ -67,6 +67,27 @@ class ApiService {
            return id2Number;
        }
     }
+    
+    calcular(num1, num2,operacao){
+         num1 = Number(num1);
+         num2 = Number(num2);
+        if(operacao==='soma'){
+            return num1+num2;
+        } 
+        else if(operacao==='sub'){
+            return num1-num2;
+        }
+        else if(operacao==='multi'){
+            return num1*num2;
+        }
+        else if(operacao==='div'){
+            return num1/num2;
+        }else{
+            return {
+                message: "informe uma operacao valida"
+            }
+        }
+    }
 }
 
 module.exports = ApiService
