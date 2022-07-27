@@ -88,6 +88,22 @@ class ApiService {
             }
         }
     }
+
+    cadastrar(nome, idade, sexo) { 
+       /* nome = String(nome);
+        idade = Number(idade);
+        sexo = String(sexo);
+    console.log(nome, idade, sexo);*/
+
+    const pessoas = [
+        ["jhey", 30, "F"], 
+        ["leide", 26, "F"]
+    ]
+    pessoas.push(["maria", 12, "F"]);
+    console.log(pessoas);
+
+   }
+
 }
 
 module.exports = ApiService

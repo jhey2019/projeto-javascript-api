@@ -75,4 +75,14 @@ app.get("/calc", async function(request, response) {
 
 });
 
+app.post("/pessoas", async function(request, response) {
+    const nome = request.query.nome;
+    const idade = request.query.idade;
+    const sexo = request.query.sexo;
+    const apiController = new ApiController();
+    const result = apiController.cadastrar(nome, idade, sexo);
+    return response.json(result);
+
+});
+
 module.exports = app;
