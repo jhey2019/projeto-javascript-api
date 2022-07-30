@@ -76,16 +76,6 @@ app.get("/calc", async function(request, response) {
 
 });
 
-app.get("/pessoas", async function(req, res) {
-    const nome = req.query.nome;
-    const idade = req.query.idade;
-    const sexo = req.query.sexo;
-    const apiController = new ApiController();
-    const result = apiController.incluir(nome, idade, sexo );
-
-    return res.json(result)
-});
-
 app.post("/pessoas", async function(req, res) {
     const nome = req.query.nome;
     const idade = req.query.idade;

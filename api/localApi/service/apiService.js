@@ -89,12 +89,6 @@ class ApiService {
         }
     }
 
-    incluir(nome, idade, sexo){
-        idade = Number(idade);
-        const pessoas = [{nome,idade, sexo}];
-    pessoas.push({nome, idade, sexo});
-    
-    };
 
     cadastrar(nome, idade, sexo){
         idade = Number(idade);
