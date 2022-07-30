@@ -4,6 +4,7 @@ const ApiController = require("./controller/apiController");
 
 app.use(express.json())
 app.use(express.urlencoded({extended:true})),
+
 app.get("/local", async function(req, res){
     console.log("request feito");
     return res.json("Hello world");
@@ -75,14 +76,25 @@ app.get("/calc", async function(request, response) {
 
 });
 
-app.post("/pessoas", async function(request, response) {
-    const nome = request.query.nome;
-    const idade = request.query.idade;
-    const sexo = request.query.sexo;
+app.get("/pessoas", async function(req, res) {
+    const nome = req.query.nome;
+    const idade = req.query.idade;
+    const sexo = req.query.sexo;
+    const apiController = new ApiController();
+    const result = apiController.incluir(nome, idade, sexo );
+
+    return res.json(result)
+});
+
+app.post("/pessoas", async function(req, res) {
+    const nome = req.query.nome;
+    const idade = req.query.idade;
+    const sexo = req.query.sexo;
     const apiController = new ApiController();
     const result = apiController.cadastrar(nome, idade, sexo);
-    return response.json(result);
 
+    return res.json(result);
+    
 });
 
 module.exports = app;

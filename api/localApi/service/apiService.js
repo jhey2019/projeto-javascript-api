@@ -89,20 +89,54 @@ class ApiService {
         }
     }
 
-    cadastrar(nome, idade, sexo) { 
-       /* nome = String(nome);
+    incluir(nome, idade, sexo){
         idade = Number(idade);
-        sexo = String(sexo);
-    console.log(nome, idade, sexo);*/
+        const pessoas = [{nome,idade, sexo}];
+    pessoas.push({nome, idade, sexo});
+    
+    };
 
-    const pessoas = [
-        ["jhey", 30, "F"], 
-        ["leide", 26, "F"]
-    ]
-    pessoas.push(["maria", 12, "F"]);
+    cadastrar(nome, idade, sexo){
+        idade = Number(idade);
+        const pessoas = [
+            {
+                "nome": "jhey",
+                "idade": 31,
+                 "sexo": "F"
+            }, 
+            {
+                "nome": "leide",
+                "idade": 17,
+                "sexo": "F"
+            },
+            {
+                "nome": "dani",
+                "idade": 38,
+                "sexo": "M"
+            },
+            {
+                "nome": "alex",
+                "idade": 8,
+                "sexo": "M"
+            }, 
+            {
+                "nome": "flor",
+                "idade": 18,
+                "sexo": "F"
+            }, 
+            {
+                "nome": "dinda",
+                "idade": 50,
+                "sexo": "F"
+            }
+    ];
+    pessoas.push( {nome, idade, sexo});
     console.log(pessoas);
 
-   }
+    const maioridade = pessoas.filter(maior => maior.idade >= 18);
+    console.log(maioridade);
+}
+      
 
 }
 

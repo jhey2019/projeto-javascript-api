@@ -40,6 +40,11 @@ class ApiController{
         return apiService.calcular(num1, num2,operacao);
     }
 
+    incluir(nome, idade, sexo) {
+        const apiService = new ApiService();
+        return apiService.incluir(nome, idade, sexo);
+    }
+
     cadastrar(nome, idade, sexo) {
         const apiService = new ApiService();
         return apiService.cadastrar(nome, idade, sexo);
