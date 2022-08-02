@@ -40,9 +40,9 @@ class ApiController{
         return apiService.calcular(num1, num2,operacao);
     }
 
-    cadastrar(nome, idade, sexo) {
+    cadastrar(body) {
         const apiService = new ApiService();
-        return apiService.cadastrar(nome, idade, sexo);
+        return apiService.cadastrar(body);
     }
 }
 module.exports = ApiController
