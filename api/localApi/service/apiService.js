@@ -98,9 +98,9 @@ class ApiService {
                 arrPessoasMaiorDeIdade.push(value); //se no objeto a pessoa tiver mais de 18 anos, o objeto com os dados da pessoa é armazenado na variavel arrPessoasMaiorDeIdade atraves da funcao push
             }
         });
-        return {
-            'quantidade de pessoas maiores de idade': arrPessoasMaiorDeIdade.length,
-            'pessoas maiores de idade': arrPessoasMaiorDeIdade,
+        return { //return entre chaves ira retornar um json, vamos utilizar o retorno dessa forma daqui para frente
+            'quantidade de pessoas maiores de idade': arrPessoasMaiorDeIdade.length, //length é utilizado para mostrar o numero de quantidade de objetos dentro do array
+            'pessoas maiores de idade': arrPessoasMaiorDeIdade, //variavel que esta armazenando as pessoas maiores de idade
         }
     }
 
