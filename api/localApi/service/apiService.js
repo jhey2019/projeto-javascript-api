@@ -104,6 +104,28 @@ class ApiService {
         }
     }
 
+    verificar(arrPessoas) {
+        let arrMasc = []; 
+        let arrFemi = [];
+
+        arrPessoas.forEach(value => { 
+            if (value.sexo === "M") { 
+                arrMasc.push(value); 
+            }
+        });
+        arrPessoas.forEach(value => { 
+            if (value.sexo === "F") { 
+                arrFemi.push(value); 
+            }
+        });
+        return {
+            'quantidade de pessoas do sexo masculino': arrMasc.length, 
+            'pessoas do sexo masculino': arrMasc, 
+            'quantidade de pessoas do sexo feminino': arrFemi.length, 
+            'pessoas do sexo feminino': arrFemi
+        }
+    }
+
 
 }
 

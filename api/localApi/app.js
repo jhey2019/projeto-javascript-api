@@ -85,4 +85,13 @@ app.post("/pessoas", async function(req, res) {
     
 });
 
+app.post("/verificaPessoa", async function(req, res) {
+    const body = req.body;
+    const apiController = new ApiController();
+    const result = apiController.verificar(body);
+
+    return res.json(result);
+
+});
+
 module.exports = app;

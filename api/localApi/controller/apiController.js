@@ -44,6 +44,11 @@ class ApiController{
         const apiService = new ApiService();
         return apiService.cadastrar(body);
     }
+
+    verificar(body) {
+        const apiService = new ApiService();
+        return apiService.verificar(body);
+    }
 }
 module.exports = ApiController
 
