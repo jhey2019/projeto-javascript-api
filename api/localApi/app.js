@@ -91,7 +91,12 @@ app.post("/verificaPessoa", async function(req, res) {
     const result = apiController.verificar(body);
 
     return res.json(result);
-
 });
 
+app.get("/testeBD", async function(req, res) {
+    const apiController = new ApiController();
+    const result = await apiController.testarBD();
+
+    return res.json(result);
+});
 module.exports = app;

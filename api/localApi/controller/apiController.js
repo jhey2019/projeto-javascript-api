@@ -49,6 +49,16 @@ class ApiController{
         const apiService = new ApiService();
         return apiService.verificar(body);
     }
+   
+   testarBD() {
+        const apiService = new ApiService();
+        const result= apiService.testarBD();
+        return result;
+    }
+    verificar(body) {
+        const apiService = new ApiService();
+        return apiService.verificar(body);
+    }
 }
 module.exports = ApiController
 
