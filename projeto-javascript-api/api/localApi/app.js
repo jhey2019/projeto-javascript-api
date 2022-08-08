@@ -4,6 +4,7 @@ const ApiController = require("./controller/apiController");
 
 app.use(express.json())
 app.use(express.urlencoded({extended:true})),
+
 app.get("/local", async function(req, res){
     console.log("request feito");
     return res.json("Hello world");
@@ -63,15 +64,39 @@ app.get("/ver/:id1/:id2", async function(request, response) {
     return response.json(result);
 });
 
-app.get("calc", async function(request, response) {
+app.get("/calc", async function(request, response) {
     /* criar um calculadora que receba dois numeros e a operacao pela QUERY,
      verificar a operacao (soma, subtracao, divisao, multiplica ) realiza o calculo e retorna para o usuario*/
     const num1 = request.query.num1;
     const num2 = request.query.num2;
     const operacao = request.query.operacao;
     const apiController = new ApiController();
-    const result = apiController.verValor(num1, num2, operacao);
+    const result = apiController.calcular(num1, num2,operacao );
     return response.json(result);
+
 });
 
+app.post("/pessoas", async function(req, res) {
+    const body = req.body;
+    const apiController = new ApiController();
+    const result = apiController.cadastrar(body);
+
+    return res.json(result);
+    
+});
+
+app.post("/verificaPessoa", async function(req, res) {
+    const body = req.body;
+    const apiController = new ApiController();
+    const result = apiController.verificar(body);
+
+    return res.json(result);
+});
+
+app.get("/testeBD", async function(req, res) {
+    const apiController = new ApiController();
+    const result = await apiController.testarBD();
+
+    return res.json(result);
+});
 module.exports = app;

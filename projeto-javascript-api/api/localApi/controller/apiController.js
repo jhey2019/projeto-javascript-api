@@ -35,9 +35,29 @@ class ApiController{
         return apiService.verValor(id1, id2);
     }
 
-    calc(num1, num2, operacao){
+    calcular(num1, num2,operacao){
         const apiService = new ApiService();
-        return apiService.verValor(num1, num2, operacao);
+        return apiService.calcular(num1, num2,operacao);
+    }
+
+    cadastrar(body) {
+        const apiService = new ApiService();
+        return apiService.cadastrar(body);
+    }
+
+    verificar(body) {
+        const apiService = new ApiService();
+        return apiService.verificar(body);
+    }
+   
+   testarBD() {
+        const apiService = new ApiService();
+        const result= apiService.testarBD();
+        return result;
+    }
+    verificar(body) {
+        const apiService = new ApiService();
+        return apiService.verificar(body);
     }
 }
 module.exports = ApiController
