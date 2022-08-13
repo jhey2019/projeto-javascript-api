@@ -139,6 +139,34 @@ class ApiService {
         } 
     }
 
+    async cadastrarPessoa() {
+        const db = new Database();
+        const database = require('./DB');
+        const Pessoa = require('./pessoaTb');
+        await database.sync();
+
+        const novoCadastro = await database.create({
+            nome: 'Jhey',
+            cpf: '00316887218' ,
+            estadoCivil: 'Solteira',
+            profissao:'Analista de sistemas',
+            endereco: 'rua floriano peixoto 107',
+            sexo:'F',
+            dataNascimento: '1990-09-16'
+        })
+    
+    }
+
+    async consultarPessoa() {
+        const db = new Database();
+
+        try {
+            const result = await Pessoa.findAll();
+            return result;
+        } catch (error) {
+            console.log(error);
+        } 
+    }
 }
 
 module.exports = ApiService

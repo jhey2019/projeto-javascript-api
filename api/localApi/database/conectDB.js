@@ -17,9 +17,11 @@ class Database {
 model.associate(this.connection.models));
   }
 
+ 
   close() {
     return this.connection.close();
   }
+
 }
 
 module.exports = Database;

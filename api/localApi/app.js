@@ -1,6 +1,7 @@
 const express = require("express");
 const app = express();
 const ApiController = require("./controller/apiController");
+const Pessoa = require("./models/pessoaTb");
 
 app.use(express.json())
 app.use(express.urlencoded({extended:true})),
@@ -99,4 +100,21 @@ app.get("/testeBD", async function(req, res) {
 
     return res.json(result);
 });
+
+app.post("/cadastroPessoa", async function(req, res) {
+    const body = req.body;
+    const apiController = new ApiController();
+    const result = apiController.cadastrarPessoa(body);
+
+    return res.json(result);
+});
+
+app.get("/consultaPessoa", async function(req, res) {
+    const apiController = new ApiController();
+    const result = await apiController.consultarPessoa();
+
+    return res.json(result);
+
+});
+
 module.exports = app;

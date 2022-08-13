@@ -30,11 +30,6 @@ class ApiController{
         return apiService.aprovValor(id1, id2, id3, id4, id5);
     }
 
-    verValor(id1, id2){
-        const apiService = new ApiService();
-        return apiService.verValor(id1, id2);
-    }
-
     calcular(num1, num2,operacao){
         const apiService = new ApiService();
         return apiService.calcular(num1, num2,operacao);
@@ -58,6 +53,18 @@ class ApiController{
     verificar(body) {
         const apiService = new ApiService();
         return apiService.verificar(body);
+    }
+
+    cadastrarPessoa(body) {
+        const apiService = new ApiService();
+        const result = apiService.cadastrarPessoa(body);
+        return result;
+    }
+
+    consultarPessoa(body) {
+        const apiService = new ApiService();
+        const result = apiService.consultarPessoa(body);
+        return result;
     }
 }
 module.exports = ApiController
