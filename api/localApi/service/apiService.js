@@ -136,36 +136,45 @@ class ApiService {
             return result;
         } catch (error) {
             console.log(error);
-        } 
+        }
     }
 
-    async cadastrarPessoa() {
+    async cadastrarPessoa(body) {
         const db = new Database();
-        const database = require('./DB');
-        const Pessoa = require('./pessoaTb');
-        await database.sync();
+        try {
+            const result = await Pessoa.create({
+                nome: body.nome,
+                cpf: body.cpf,
+                estadoCivil: body.estadoCivil,
+                profissao: body.profissao,
+                endereco: body.endereco,
+                sexo: body.sexo,
+                dataNascimento: body.dataNascimento
+            });
 
-        const novoCadastro = await database.create({
-            nome: 'Jhey',
-            cpf: '00316887218' ,
-            estadoCivil: 'Solteira',
-            profissao:'Analista de sistemas',
-            endereco: 'rua floriano peixoto 107',
-            sexo:'F',
-            dataNascimento: '1990-09-16'
-        })
-    
+            if (result) {
+                return {
+                    message: "Pessoa Incluida com Sucesso!"
+                }
+            }
+        } catch (error) {
+            console.log(error);
+        } finally {
+            db.close()
+        }
+
     }
 
-    async consultarPessoa() {
+    async consultarPessoa(idPessoa) {
         const db = new Database();
 
         try {
-            const result = await Pessoa.findAll();
+            const result = await Pessoa.findOne({ where: { idPessoa: idPessoa } });
+
             return result;
         } catch (error) {
             console.log(error);
-        } 
+        }
     }
 }
 

@@ -1,38 +1,38 @@
 const ApiService = require("./../service/apiService");
-class ApiController{
-    verificarValor(id){
+class ApiController {
+    verificarValor(id) {
         const apiService = new ApiService();
-        return apiService.verificarValor(id);        
+        return apiService.verificarValor(id);
     }
-    
-    somarValor(id1, id2){
+
+    somarValor(id1, id2) {
         const apiService = new ApiService();
         return apiService.somarValor(id1, id2);
     }
 
-    multValor(id1, id2){
+    multValor(id1, id2) {
         const apiService = new ApiService();
         return apiService.multValor(id1, id2);
     }
 
-    diviValor(id1, id2){
+    diviValor(id1, id2) {
         const apiService = new ApiService();
         return apiService.diviValor(id1, id2);
     }
 
-    mediaValor(id1, id2, id3){
+    mediaValor(id1, id2, id3) {
         const apiService = new ApiService();
         return apiService.mediaValor(id1, id2, id3);
     }
 
-    aprovValor(id1, id2, id3, id4, id5){
+    aprovValor(id1, id2, id3, id4, id5) {
         const apiService = new ApiService();
         return apiService.aprovValor(id1, id2, id3, id4, id5);
     }
 
-    calcular(num1, num2,operacao){
+    calcular(num1, num2, operacao) {
         const apiService = new ApiService();
-        return apiService.calcular(num1, num2,operacao);
+        return apiService.calcular(num1, num2, operacao);
     }
 
     cadastrar(body) {
@@ -44,10 +44,10 @@ class ApiController{
         const apiService = new ApiService();
         return apiService.verificar(body);
     }
-   
-   testarBD() {
+
+    testarBD() {
         const apiService = new ApiService();
-        const result= apiService.testarBD();
+        const result = apiService.testarBD();
         return result;
     }
     verificar(body) {
@@ -55,15 +55,16 @@ class ApiController{
         return apiService.verificar(body);
     }
 
-    cadastrarPessoa(body) {
+    async cadastrarPessoa(body) {
         const apiService = new ApiService();
-        const result = apiService.cadastrarPessoa(body);
+        const result = await apiService.cadastrarPessoa(body);
         return result;
     }
 
-    consultarPessoa(body) {
+    async consultarPessoa(idPessoa) {
         const apiService = new ApiService();
-        const result = apiService.consultarPessoa(body);
+        const result = await apiService.consultarPessoa(idPessoa);
+        console.log(result);
         return result;
     }
 }

@@ -14,13 +14,6 @@ const get = () => {
   const dbPort = 3306;
   const dbDialect = 'mysql';
 
-  console.log("dbName", dbName);
-  console.log("dbUser", dbUser);
-  console.log("dbPassword", dbPassword);
-  console.log("dbHost", dbHost);
-  console.log("dbPort", dbPort);
-  console.log("dbDialect", dbDialect);
-
   return {
     dialect: dbDialect,
     host: dbHost,

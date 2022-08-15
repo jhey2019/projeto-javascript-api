@@ -104,14 +104,14 @@ app.get("/testeBD", async function(req, res) {
 app.post("/cadastroPessoa", async function(req, res) {
     const body = req.body;
     const apiController = new ApiController();
-    const result = apiController.cadastrarPessoa(body);
-
+    const result = await apiController.cadastrarPessoa(body);
     return res.json(result);
 });
 
-app.get("/consultaPessoa", async function(req, res) {
+app.get("/consultaPessoa/:idPessoa", async function(req, res) {
+    const idPessoa= req.params.idPessoa;
     const apiController = new ApiController();
-    const result = await apiController.consultarPessoa();
+    const result = await apiController.consultarPessoa(idPessoa);
 
     return res.json(result);
 
