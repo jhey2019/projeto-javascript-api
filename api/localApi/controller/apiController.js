@@ -67,6 +67,19 @@ class ApiController {
         console.log(result);
         return result;
     }
+
+    async cadastrarPessoaMasc(body) {
+        const apiService = new ApiService();
+        const result = await apiService.cadastrarPessoaMasc(body);
+        return result;
+    }
+
+    async consultarCpf(cpf) {
+        const apiService = new ApiService();
+        const result = await apiService.consultarCpf(cpf);
+        console.log(result);
+        return result;
+    }
 }
 module.exports = ApiController
 

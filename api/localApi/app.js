@@ -117,4 +117,20 @@ app.get("/consultaPessoa/:idPessoa", async function(req, res) {
 
 });
 
+app.post("/cadastroPessoaMasc", async function(req, res) {
+    const body = req.body;
+    const apiController = new ApiController();
+    const result = await apiController.cadastrarPessoaMasc(body);
+    return res.json(result);
+});
+
+app.get("/buscarPessoaCpf/:cpf", async function(req, res) {
+    const cpf= req.params.cpf;
+    const apiController = new ApiController();
+    const result = await apiController.consultarCpf(cpf);
+
+    return res.json(result);
+
+});
+
 module.exports = app;

@@ -1,5 +1,6 @@
 const Pessoa = require('../models/pessoaTb')
-const Database = require('../database/conectDB')
+const Database = require('../database/conectDB');
+const DB = require('../config/DB');
 
 class ApiService {
     verificarValor(id) {
@@ -176,6 +177,52 @@ class ApiService {
             console.log(error);
         }
     }
+
+    async cadastrarPessoaMasc(body) {
+        const db = new Database();
+        try {
+            const result = await Pessoa.create({
+                nome: body.nome,
+                cpf: body.cpf,
+                estadoCivil: body.estadoCivil,
+                profissao: body.profissao,
+                endereco: body.endereco,
+                sexo: body.sexo,
+                dataNascimento: body.dataNascimento
+            });
+
+            
+            if (body.sexo ==="F") {
+                return "Inclusão permitida somente de pessoas do sexo masculino."
+                }
+            else {
+                return result;
+                    }
+    
+
+
+        } catch (error) {
+            console.log(error);
+        } finally {
+            db.close()
+        }
+
+    }
+
+    async consultarCpf(cpf) {
+        const db = new Database();
+
+        try {
+            const result = await Pessoa.findOne({ where: { cpf: cpf } });
+            
+             return result;
+            
+        } catch (error) {
+            console.log(error);
+        }
+    }
 }
+
+
 
 module.exports = ApiService
