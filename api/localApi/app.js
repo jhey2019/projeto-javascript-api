@@ -133,4 +133,13 @@ app.get("/buscarPessoaCpf/:cpf", async function(req, res) {
 
 });
 
+app.put("/alterarPessoa", async function(req, res) {
+    const idPessoa= req.params.idPessoa;
+    const apiController = new ApiController();
+    const result = await apiController.alterarPessoa(idPessoa);
+
+    return res.json(result);
+
+});
+
 module.exports = app;

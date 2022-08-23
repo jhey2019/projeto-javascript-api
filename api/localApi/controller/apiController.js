@@ -80,6 +80,13 @@ class ApiController {
         console.log(result);
         return result;
     }
+
+    async alterarPessoa(idPessoa) {
+        const apiService = new ApiService();
+        const result = await apiService.alterarPessoa(idPessoa);
+        console.log(result);
+        return result;
+    }
 }
 module.exports = ApiController
 

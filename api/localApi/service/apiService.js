@@ -227,8 +227,27 @@ class ApiService {
             console.log(error);
         }
     }
+
+    async alterarPessoa(idPessoa) {
+        const db = new Database();
+
+        try {
+            const result = await Pessoa.findOne({ where: { idPessoa : idPessoa } });
+            
+            if (result === null) {
+                return "Cadastro não encontrado"
+            }
+            else {
+                return result
+            }
+            
+        } catch (error) {
+            console.log(error);
+        }
+    }
 }
 
 
 
 module.exports = ApiService
+
