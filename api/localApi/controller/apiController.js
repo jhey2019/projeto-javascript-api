@@ -81,9 +81,9 @@ class ApiController {
         return result;
     }
 
-    async alterarPessoa(idPessoa) {
+    async alterarPessoa(body) {
         const apiService = new ApiService();
-        const result = await apiService.alterarPessoa(idPessoa);
+        const result = await apiService.alterarPessoa(body);
         console.log(result);
         return result;
     }

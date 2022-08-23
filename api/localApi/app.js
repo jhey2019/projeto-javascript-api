@@ -128,16 +128,14 @@ app.get("/buscarPessoaCpf/:cpf", async function(req, res) {
     const cpf= req.params.cpf;
     const apiController = new ApiController();
     const result = await apiController.consultarCpf(cpf);
-
     return res.json(result);
 
 });
 
 app.put("/alterarPessoa", async function(req, res) {
-    const idPessoa= req.params.idPessoa;
+    const body = req.body;
     const apiController = new ApiController();
-    const result = await apiController.alterarPessoa(idPessoa);
-
+    const result = await apiController.alterarPessoa(body);
     return res.json(result);
 
 });
