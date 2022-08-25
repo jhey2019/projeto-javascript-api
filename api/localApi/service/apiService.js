@@ -228,7 +228,7 @@ class ApiService {
         }
     }
 
-    async alterarPessoa(body) {
+    async alterarPessoa(idPessoa) {
         const db = new Database();
 
         try {
