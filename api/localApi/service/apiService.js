@@ -228,18 +228,13 @@ class ApiService {
         }
     }
 
-    async alterarPessoa(idPessoa) {
+    async alterarPessoa(body) {
         const db = new Database();
 
         try {
-            const result = await Pessoa.findOne({ where: { idPessoa : idPessoa } });
+            const result = await Pessoa.update({ where: { idPessoa: idPessoa } });
             
-            if (result === null) {
-                return "Cadastro não encontrado"
-            }
-            else {
-                return result
-            }
+            return result
             
         } catch (error) {
             console.log(error);
