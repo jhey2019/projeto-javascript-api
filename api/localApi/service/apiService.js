@@ -181,25 +181,25 @@ class ApiService {
     async cadastrarPessoaMasc(body) {
         const db = new Database();
         try {
-            
 
-                if (body.sexo === "M") {
-                    const result = await Pessoa.create({
-                        nome: body.nome,
-                        cpf: body.cpf,
-                        estadoCivil: body.estadoCivil,
-                        profissao: body.profissao,
-                        endereco: body.endereco,
-                        sexo: body.sexo,
-                        dataNascimento: body.dataNascimento       
-                        
-                    });
-                    return result
-                } 
-                else {
-                    return "Permitido o cadastro somente de pessoa do sexo masculino"
-                  }   
-           
+
+            if (body.sexo === "M") {
+                const result = await Pessoa.create({
+                    nome: body.nome,
+                    cpf: body.cpf,
+                    estadoCivil: body.estadoCivil,
+                    profissao: body.profissao,
+                    endereco: body.endereco,
+                    sexo: body.sexo,
+                    dataNascimento: body.dataNascimento
+
+                });
+                return result
+            }
+            else {
+                return "Permitido o cadastro somente de pessoa do sexo masculino"
+            }
+
 
 
         } catch (error) {
@@ -215,14 +215,14 @@ class ApiService {
 
         try {
             const result = await Pessoa.findOne({ where: { cpf: cpf } });
-            
+
             if (result === null) {
                 return "Pessoa não cadastrada na base de dados"
             }
             else {
                 return result
             }
-            
+
         } catch (error) {
             console.log(error);
         }
@@ -232,10 +232,28 @@ class ApiService {
         const db = new Database();
 
         try {
-            const result = await Pessoa.update({ where: { idPessoa: idPessoa } });
-            
-            return result
-            
+            const fieldUpdate = {
+                nome: body.nome,
+                cpf: body.cpf,
+                estadoCivil: body.estadoCivil,
+                profissao: body.profissao,
+                endereco: body.endereco,
+                sexo: body.sexo,
+                dataNascimento: body.dataNascimento
+            };
+
+            const result = await Pessoa.update(fieldUpdate, { where: { idPessoa: body.idPessoa } });
+            if (result) {
+                return {
+                    message: "Pessoa atualizada com sucesso!"
+                }
+            } else {
+                return {
+                    message: "Falha ao alterar Pessoa!"
+                }
+            }
+
+
         } catch (error) {
             console.log(error);
         }
